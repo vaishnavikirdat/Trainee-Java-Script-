@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change DOM Element Every 2 Seconds</title>
+    <style>
+        #content {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">Starting text...</div>
+
+    <script>
+        // Array of messages to display
+        const messages = [
+            'Hello, world!',
+            'How are you today?',
+            'JavaScript is awesome!',
+            'Changing text every 2 seconds!',
+            'Have a great day!'
+        ];
+
+        // Function to update the content of the DOM element
+        function updateContent() {
+            const contentElement = document.getElementById('content');
+            // Choose a random message from the array
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            contentElement.textContent = messages[randomIndex];
+        }
+
+        // Set the interval to call updateContent every 2 seconds
+        setInterval(updateContent, 2000);
+
+        // Optionally, update the content immediately on page load
+        updateContent();
+    </script>
+</body>
+</html>
